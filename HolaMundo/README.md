@@ -2,6 +2,10 @@
 
 Aplicación (`.NET MAUI`) que valida una contraseña ingresada por el usuario.
 
+<img width="1118" height="742" alt="Screenshot 2026-10-03 at 11 31 44 a m" src="https://github.com/user-attachments/assets/be40fd11-fa5c-4111-8cf4-c9f49b5c38f5" />
+
+<img width="890" height="408" alt="Screenshot 2026-10-03 at 11 31 15 a m" src="https://github.com/user-attachments/assets/d88abd95-6e42-42c9-8298-e6f96aeed2c2" />
+
 ## Descripción
 
 La aplicación muestra una pantalla con dos campos de entrada para la contraseña:
