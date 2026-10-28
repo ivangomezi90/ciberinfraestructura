@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:InventarioApp.Models"
+             x:Class="InventarioApp.MainPage"
+             Title="Inventario">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="Inventario" FontSize="26" FontAttributes="Bold" />
+
+            <Label x:Name="StatusLabel" Text="Conectando a la base configurada..." TextColor="Gray" />
+
+            <!-- Captura -->
+            <Border Padding="12" StrokeThickness="1">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Registro" FontAttributes="Bold" />
+                        <Picker x:Name="ProductoPicker" Title="Producto" ItemDisplayBinding="{Binding Descripcion}"
+                            SelectedIndexChanged="OnProductoSelectionChanged" />
+                        <Entry x:Name="ProductoPersonalizadoEntry" Placeholder="Escribe el nombre del producto"
+                           IsVisible="False" />
+                    <Entry x:Name="CantidadEntry" Placeholder="Cantidad (entero &gt; 0)" Keyboard="Numeric" />
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                        <Button x:Name="AddBtn"    Grid.Column="0" Text="Agregar"    Clicked="OnAddClicked"    IsEnabled="False" />
+                        <Button x:Name="UpdateBtn" Grid.Column="1" Text="Actualizar" Clicked="OnUpdateClicked" IsEnabled="False" />
+                        <Button x:Name="DeleteBtn" Grid.Column="2" Text="Eliminar"   Clicked="OnDeleteClicked" IsEnabled="False" BackgroundColor="Firebrick" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Listado -->
+            <SearchBar x:Name="SearchBar" Placeholder="Buscar por producto" SearchButtonPressed="OnSearch" TextChanged="OnSearchTextChanged" />
+
+            <Grid ColumnDefinitions="60,160,*,90" Padding="8,0">
+                <Label Grid.Column="0" Text="ID" FontAttributes="Bold" />
+                <Label Grid.Column="1" Text="Fecha alta" FontAttributes="Bold" />
+                <Label Grid.Column="2" Text="Producto" FontAttributes="Bold" />
+                <Label Grid.Column="3" Text="Cantidad" FontAttributes="Bold" />
+            </Grid>
+
+            <CollectionView x:Name="InventarioView" SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged" HeightRequest="320">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ItemInventario">
+                        <Grid ColumnDefinitions="60,160,*,90" Padding="8,6">
+                            <Label Grid.Column="0" Text="{Binding Id}" />
+                            <Label Grid.Column="1" Text="{Binding FechaTexto}" />
+                            <Label Grid.Column="2" Text="{Binding Producto}" />
+                            <Label Grid.Column="3" Text="{Binding Cantidad}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
