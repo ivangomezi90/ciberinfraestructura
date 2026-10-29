@@ -23,3 +23,14 @@ dotnet build -t:Run -f net9.0-maccatalyst
 - `Services/DbService.cs`: conexión (MySqlConnector) y consultas parametrizadas.
 - `Models/`: `Producto` (CatProducto) e `ItemInventario` (tblInventario JOIN CatProducto).
 - `MainPage.xaml(.cs)`: alta, edición, baja y búsqueda.
+
+### Resources/Raw/database.json
+```json
+{
+  "Server": "localhost",
+  "Port": 3306,
+  "Database": "inventario",
+  "User": "root",
+  "Password": "Trick or treat" //(aprovechando que es temporada de muertos ;)" 
+}
+```
