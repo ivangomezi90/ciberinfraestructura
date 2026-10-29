@@ -1,4 +1,6 @@
 # InventarioApp (.NET MAUI + MySQL)
+<img width="1136" height="880" alt="Screenshot 2026-10-27 at 2 14 51 p m" src="https://github.com/user-attachments/assets/f7168767-b099-4fe1-ad46-a88c569e209c" />
+
 
 CRUD de `tblInventario` sobre la base `inventario` (ver `../inventario_schema.sql`).
 
